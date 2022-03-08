@@ -3,7 +3,7 @@
     /// <summary>
     /// The result model. Used to contain user data for the statistics.
     /// </summary>
-    /// <seealso cref="TestingAPI.models.IUserModel" />
+    /// <seealso cref="TrialProject.API.Models.IUserModel" />
     public class Result : IUserModel
     {
         /// <summary>

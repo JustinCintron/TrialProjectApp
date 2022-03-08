@@ -5,7 +5,7 @@ namespace TrialProject.API.Services
     /// <summary>
     /// The class that generates the statistics that are returned to the user.
     /// </summary>
-    /// <seealso cref="TestingAPI.models.IGenerateUserStatistics" />
+    /// <seealso cref="TrialProject.API.Services.IGenerateUserStatistics" />
     public class GenerateUserStatistics : IGenerateUserStatistics
     {
         /// <summary>
