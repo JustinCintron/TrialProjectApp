@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TrialProject.API.Controllers;
 using TrialProject.API.Models;
+using TrialProject.UnitTests.Helpers;
 using Xunit;
 
 namespace TrialProject.UnitTests.Systems.Controllers
@@ -36,6 +37,21 @@ namespace TrialProject.UnitTests.Systems.Controllers
             var result = await controller.Get(new UserStatisticRoot());
 
             result.Should().BeOfType<BadRequestResult>();
+        }
+        /// <summary>
+        /// Tests the GetStatistics method result type if valid data was sent.
+        /// </summary>
+        [Fact]
+        public async Task Get_OnValidData_Returns200()
+        {
+            var controller = new UserStatisticsController();
+
+            var users = UserCreator.GetUserRoot();
+
+            var result = await controller.Get(users);
+
+            result.Should().BeOfType<OkResult>();
+
         }
     }
 }
