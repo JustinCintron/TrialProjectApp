@@ -1,8 +1,10 @@
 ﻿using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Moq;
 using TrialProject.API.Controllers;
 using TrialProject.API.Models;
+using TrialProject.API.Services;
 using TrialProject.UnitTests.Helpers;
 using Xunit;
 
@@ -19,7 +21,9 @@ namespace TrialProject.UnitTests.Systems.Controllers
         public async Task Get_OnNoData_Returns400(UserStatisticRoot users)
         {
 
-            var controller = new UserStatisticsController();
+            var mockStatisticsService = new Mock<IGenerateUserStatistics>();
+
+            var controller = new UserStatisticsController(mockStatisticsService.Object);
 
             var result = await controller.Get(users);
 
@@ -32,7 +36,9 @@ namespace TrialProject.UnitTests.Systems.Controllers
         public async Task Get_OnWrongData_Returns400()
         {
 
-            var controller = new UserStatisticsController();
+            var mockStatisticsService = new Mock<IGenerateUserStatistics>();
+
+            var controller = new UserStatisticsController(mockStatisticsService.Object);
 
             var result = await controller.Get(new UserStatisticRoot());
 
@@ -44,13 +50,15 @@ namespace TrialProject.UnitTests.Systems.Controllers
         [Fact]
         public async Task Get_OnValidData_Returns200()
         {
-            var controller = new UserStatisticsController();
+            var mockStatisticsService = new Mock<IGenerateUserStatistics>();
+
+            var controller = new UserStatisticsController(mockStatisticsService.Object);
 
             var users = UserCreator.GetUserRoot();
 
             var result = await controller.Get(users);
 
-            result.Should().BeOfType<OkResult>();
+            result.Should().BeOfType<OkObjectResult>();
 
         }
     }

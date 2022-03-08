@@ -1,7 +1,7 @@
 ﻿namespace TrialProject.API.Models
 {
     /// <summary>
-    /// Contains the Results (the users) used for deserialization.
+    /// Contains the Results (the users).
     /// </summary>
     public class UserStatisticRoot
     {

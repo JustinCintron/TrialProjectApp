@@ -1,7 +1,7 @@
 ﻿namespace TrialProject.API.Models
 {
     /// <summary>
-    /// The result model. Used for deserialization and for getting the actual statistics.
+    /// The result model. Used to contain user data for the statistics.
     /// </summary>
     /// <seealso cref="TestingAPI.models.IUserModel" />
     public class Result : IUserModel

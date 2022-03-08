@@ -1,7 +1,7 @@
 ﻿namespace TrialProject.API.Models
 {
     /// <summary>
-    /// Name model for deserialization
+    /// Name model.
     /// </summary>
     public class Name
     {

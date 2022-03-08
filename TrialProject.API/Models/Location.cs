@@ -1,7 +1,7 @@
 ﻿namespace TrialProject.API.Models
 {
     /// <summary>
-    /// Location model for deserialization.
+    /// Location model.
     /// </summary>
     public class Location
     {
