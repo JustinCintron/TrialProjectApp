@@ -4,6 +4,8 @@ using TrialProject.API.Services;
 
 namespace TrialProject.API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UserStatisticsController : Controller
     {
         private readonly IGenerateUserStatistics generateUserStatistics;
@@ -12,6 +14,7 @@ namespace TrialProject.API.Controllers
         {
             this.generateUserStatistics = generateUserStatistics;
         }
+        [HttpGet]
         public async Task<IActionResult> Get([FromBody] UserStatisticRoot userRoot)
         {
 
