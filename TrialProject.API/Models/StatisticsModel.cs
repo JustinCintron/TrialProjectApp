@@ -29,5 +29,37 @@
         /// The last name a through m percentage.
         /// </value>
         public decimal LastNameAThroughMPercentage { get; set; }
+        /// <summary>
+        /// Gets or sets the state of the people in each state.
+        /// </summary>
+        /// <value>
+        /// The state of the people in each.
+        /// </value>
+        public List<PeopleStatePercentageModel> AllPeopleStatePercentage { get; set; } = new();
+
+        /// <summary>
+        /// Gets or sets the state of the females in each state.
+        /// </summary>
+        /// <value>
+        /// The state of the people in each.
+        /// </value>
+        public List<PeopleStatePercentageModel> FemaleStatePercentage { get; set; } = new();
+
+        /// <summary>
+        /// Gets or sets the state of the males in each state.
+        /// </summary>
+        /// <value>
+        /// The state of the people in each.
+        /// </value>
+        public List<PeopleStatePercentageModel> MaleStatePercentage { get; set; } = new();
+
+        /// <summary>
+        /// Gets or sets the age range percentages.
+        /// </summary>
+        /// <value>
+        /// The age range percentages.
+        /// </value>
+        public List<AgeRangeModel> AgeRangePercentages { get; set; } = new();
+
     }
 }

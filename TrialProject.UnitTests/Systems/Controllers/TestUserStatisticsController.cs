@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Collections.Generic;
+using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Moq;
@@ -61,5 +62,24 @@ namespace TrialProject.UnitTests.Systems.Controllers
             result.Should().BeOfType<OkObjectResult>();
 
         }
+        /// <summary>
+        /// Tests the GetStatistics method value return type if valid data was sent.
+        /// </summary>
+        [Fact]
+        public async Task Get_OnValidData_ReturnsStatisticsModel()
+        {
+            var mockStatisticsService = new Mock<IGenerateUserStatistics>();
+            mockStatisticsService.Setup(service => service.GetStatistics(It.IsAny<List<IUserModel>>())).Returns(new StatisticsModel());
+
+            var controller = new UserStatisticsController(mockStatisticsService.Object);
+
+            var users = UserCreator.GetUserRoot();
+
+            var result = (OkObjectResult)await controller.Get(users);
+
+            result.Value.Should().BeOfType<StatisticsModel>();
+
+        }
+
     }
 }
