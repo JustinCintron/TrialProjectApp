@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TrialProject.API.Models;
 
 namespace TrialProject.API.Controllers
 {
     public class UserStatisticsController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Get([FromBody] UserStatisticRoot userRoot)
         {
-            return View();
+
+            if (userRoot == null || !userRoot.Results.Any())
+            {
+                return BadRequest();
+            }
+
+
+
+            return Ok();
         }
     }
 }
