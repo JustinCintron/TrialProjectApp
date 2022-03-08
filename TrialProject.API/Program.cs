@@ -1,10 +1,16 @@
+using TrialProject.API.Formatter;
 using TrialProject.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddXmlSerializerFormatters();
+builder.Services.AddControllers(options =>
+{
+    //Add the text formatter for plain text requests.
+    options.OutputFormatters.Add(new StatisticsTextFormatter());
+}).AddXmlSerializerFormatters(); // Add the XML serializer for xml requests.
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
